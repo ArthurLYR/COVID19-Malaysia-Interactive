@@ -1,0 +1,42 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Country Cases over Time",
+    "width": 800,
+    "height": 400,
+    "layer": [
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/MoH-Malaysia/covid19-public/main/epidemic/cases_malaysia.csv"
+            },
+            "mark": "line",
+            "encoding": {
+                "x": {
+                    "field": "date",
+                    "type": "temporal"
+                },
+                "y": {
+                    "aggregate": "sum",
+                    "field": "cases_active",
+                    "title": "count"
+                }
+            }
+        },
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/MoH-Malaysia/covid19-public/main/epidemic/cases_malaysia.csv"
+            },
+            "mark": "line",
+            "encoding": {
+                "x": {
+                    "field": "date",
+                    "type": "temporal"
+                },
+                "y": {
+                    "aggregate": "sum",
+                    "field": "cases_recovered",
+                    "title": "count"
+                }
+            }
+        }
+    ]
+}

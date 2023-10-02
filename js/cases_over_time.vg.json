@@ -1,12 +1,35 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Country Cases over Time",
     "width": 800,
     "height": 400,
     "data": {
         "url": "../data/cases_deaths_malaysia.csv"
     },
+    "params": [
+        {
+            "name": "case_type_selection",
+            "bind": {
+                "input": "select",
+                "options": [
+                    null,
+                    "New Cases",
+                    "Recovered Cases",
+                    "New Deaths"
+                ],
+                "labels": [
+                    "Show All",
+                    "New Cases",
+                    "Recovered Cases",
+                    "New Deaths"
+                ],
+                "name": "Case Type: "
+            }
+        }
+    ],
     "transform": [
+        {
+            "filter": "case_type_selection == null || datum.case_type == case_type_selection"
+        },
         {
             "timeUnit": "yearmonth",
             "field": "date",
@@ -64,6 +87,31 @@
                     "mark": "point"
                 }
             ]
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "right",
+                "baseline": "middle",
+                "dx": -12,
+                "fontSize": 11.5,
+                "fontStyle": "italic"
+            },
+            "encoding": {
+                "text": {
+                    "value": "Sabah Elections"
+                },
+                "color": {
+                    "value": "black"
+                },
+                "opacity": {
+                    "condition": {
+                        "test": "datum['date'] == '26/9/2020'",
+                        "value": 1
+                    },
+                    "value": 0
+                }
+            }
         },
         {
             "transform": [

@@ -6,36 +6,45 @@
     "layer": [
         {
             "data": {
-                "url": "https://raw.githubusercontent.com/MoH-Malaysia/covid19-public/main/epidemic/cases_malaysia.csv"
+                "url": "../data/cases_deaths_malaysia.csv"
             },
             "mark": "line",
             "encoding": {
                 "x": {
                     "field": "date",
-                    "type": "temporal"
+                    "timeUnit": "year",
+                    "title": "Date"
                 },
                 "y": {
+                    "field": "count",
                     "aggregate": "sum",
-                    "field": "cases_active",
-                    "title": "count"
-                }
-            }
-        },
-        {
-            "data": {
-                "url": "https://raw.githubusercontent.com/MoH-Malaysia/covid19-public/main/epidemic/cases_malaysia.csv"
-            },
-            "mark": "line",
-            "encoding": {
-                "x": {
-                    "field": "date",
-                    "type": "temporal"
+                    "title": "Count",
+                    "scale": {
+                        "domain": [0, 1200000]
+                    }
                 },
-                "y": {
-                    "aggregate": "sum",
-                    "field": "cases_recovered",
-                    "title": "count"
-                }
+                "color": {
+                    "field": "case_type",
+                    "type": "nominal",
+                    "title": "Case Type"
+                },
+                "tooltip": [
+                    {
+                        "field": "date",
+                        "timeUnit": "year",
+                        "title": "Date"
+                    },
+                    {
+                        "field": "count",
+                        "aggregate": "sum",
+                        "title": "Count"
+                    },
+                    {
+                        "field": "case_type",
+                        "type": "nominal",
+                        "title": "Case Type"
+                    }
+                ]
             }
         }
     ]

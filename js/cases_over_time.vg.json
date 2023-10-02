@@ -3,49 +3,123 @@
     "title": "Country Cases over Time",
     "width": 800,
     "height": 400,
+    "data": {
+        "url": "../data/cases_deaths_malaysia.csv"
+    },
+    "transform": [
+        {
+            "timeUnit": "yearmonth",
+            "field": "date",
+            "as": "date"
+        }
+    ],
+    "encoding": {
+        "x": {
+            "field": "date",
+            "timeUnit": "yearmonth",
+            "type": "temporal",
+            "title": "Date",
+            "scale": {
+                "domain": [
+                    "Jan 2020",
+                    "Dec 2023"
+                ]
+            }
+        }
+    },
     "layer": [
         {
-            "data": {
-                "url": "../data/cases_deaths_malaysia.csv"
-            },
-            "mark": "line",
             "encoding": {
-                "x": {
-                    "field": "date",
-                    "timeUnit": "year",
-                    "title": "Date"
-                },
-                "y": {
-                    "field": "count",
-                    "aggregate": "sum",
-                    "title": "Count",
-                    "scale": {
-                        "domain": [0, 1200000]
-                    }
-                },
                 "color": {
                     "field": "case_type",
                     "type": "nominal",
                     "title": "Case Type"
                 },
+                "y": {
+                    "field": "count",
+                    "aggregate": "sum",
+                    "type": "quantitative",
+                    "title": "Case Count",
+                    "scale": {
+                        "domain": [
+                            0,
+                            120000
+                        ]
+                    }
+                }
+            },
+            "layer": [
+                {
+                    "mark": "line"
+                },
+                {
+                    "transform": [
+                        {
+                            "filter": {
+                                "param": "hover",
+                                "empty": false
+                            }
+                        }
+                    ],
+                    "mark": "point"
+                }
+            ]
+        },
+        {
+            "transform": [
+                {
+                    "pivot": "case_type",
+                    "value": "count",
+                    "groupby": [
+                        "date"
+                    ]
+                }
+            ],
+            "mark": "rule",
+            "encoding": {
+                "opacity": {
+                    "condition": {
+                        "value": 0.3,
+                        "param": "hover",
+                        "empty": false
+                    },
+                    "value": 0
+                },
                 "tooltip": [
                     {
                         "field": "date",
-                        "timeUnit": "year",
+                        "timeUnit": "yearmonth",
+                        "type": "temporal",
                         "title": "Date"
                     },
                     {
-                        "field": "count",
-                        "aggregate": "sum",
-                        "title": "Count"
+                        "field": "New Cases",
+                        "type": "quantitative"
                     },
                     {
-                        "field": "case_type",
-                        "type": "nominal",
-                        "title": "Case Type"
+                        "field": "Recovered Cases",
+                        "type": "quantitative"
+                    },
+                    {
+                        "field": "New Deaths",
+                        "type": "quantitative"
                     }
                 ]
-            }
+            },
+            "params": [
+                {
+                    "name": "hover",
+                    "select": {
+                        "type": "point",
+                        "fields": [
+                            "date"
+                        ],
+                        "nearest": true,
+                        "on": "mouseover",
+                        "clear": "mouseout"
+                    }
+                }
+            ]
         }
     ]
 }

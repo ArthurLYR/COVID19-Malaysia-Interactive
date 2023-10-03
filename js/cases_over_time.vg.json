@@ -142,15 +142,18 @@
                     },
                     {
                         "field": "New Cases",
-                        "type": "quantitative"
+                        "type": "quantitative",
+                        "format": ","
                     },
                     {
                         "field": "Recovered Cases",
-                        "type": "quantitative"
+                        "type": "quantitative",
+                        "format": ","
                     },
                     {
                         "field": "New Deaths",
-                        "type": "quantitative"
+                        "type": "quantitative",
+                        "format": ","
                     }
                 ]
             },

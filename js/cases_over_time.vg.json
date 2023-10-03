@@ -89,35 +89,48 @@
             ]
         },
         {
-            "mark": {
-                "type": "text",
-                "align": "right",
-                "baseline": "middle",
-                "dx": -12,
-                "fontSize": 11.5,
-                "fontStyle": "italic"
-            },
-            "encoding": {
-                "text": {
-                    "value": "Sabah Elections"
-                },
-                "color": {
-                    "value": "black"
-                },
-                "opacity": {
-                    "condition": {
-                        "test": {
-                            "field": "datum['date']",
-                            "equal": {
+            "layer": [
+                {
+                    "mark": {
+                        "type": "rule",
+                        "strokeDash": [
+                            10,
+                            10
+                        ]
+                    },
+                    "encoding": {
+                        "x": {
+                            "datum": {
                                 "year": 2020,
-                                "month": "sep"
+                                "month": "Sep"
+                            }
+                        }
+                    }
+                },
+                {
+                    "mark": {
+                        "type": "text",
+                        "fontStyle": "italic",
+                        "dx": -50
+                    },
+                    "encoding": {
+                        "x": {
+                            "datum": {
+                                "year": 2020,
+                                "month": "Sep"
                             }
                         },
-                        "value": 1
-                    },
-                    "value": 0
+                        "text": {
+                            "value": [
+                                "Sabah Elections",
+                                "allowed to be held",
+                                "despite pandemic",
+                                "concerns"
+                            ]
+                        }
+                    }
                 }
-            }
+            ]
         },
         {
             "transform": [

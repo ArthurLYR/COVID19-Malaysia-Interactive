@@ -106,7 +106,13 @@
                 },
                 "opacity": {
                     "condition": {
-                        "test": "datum['date'] == '26/9/2020'",
+                        "test": {
+                            "field": "datum['date']",
+                            "equal": {
+                                "year": 2020,
+                                "month": "sep"
+                            }
+                        },
                         "value": 1
                     },
                     "value": 0

@@ -104,6 +104,9 @@
                                 "year": 2020,
                                 "month": "Sep"
                             }
+                        },
+                        "color": {
+                            "value": "#a7a9ab"
                         }
                     }
                 },

@@ -41,13 +41,7 @@
             "field": "date",
             "timeUnit": "yearmonth",
             "type": "temporal",
-            "title": "Date",
-            "scale": {
-                "domain": [
-                    "Jan 2020",
-                    "Dec 2023"
-                ]
-            }
+            "title": "Date"
         }
     },
     "layer": [
@@ -56,19 +50,25 @@
                 "color": {
                     "field": "case_type",
                     "type": "nominal",
-                    "title": "Case Type"
+                    "title": "Case Type",
+                    "scale": {
+                        "domain": [
+                            "New Cases",
+                            "Recovered Cases",
+                            "New Deaths"
+                        ],
+                        "range": [
+                            "#f51d0a",
+                            "#02d614",
+                            "#313331"
+                        ]
+                    }
                 },
                 "y": {
                     "field": "count",
                     "aggregate": "sum",
                     "type": "quantitative",
-                    "title": "Case Count",
-                    "scale": {
-                        "domain": [
-                            0,
-                            120000
-                        ]
-                    }
+                    "title": "Case Count"
                 }
             },
             "layer": [

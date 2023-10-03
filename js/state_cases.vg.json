@@ -98,7 +98,10 @@
                 "color": {
                     "field": "cases_active_10000",
                     "type": "quantitative",
-                    "title": "Active Cases (per 10000 population)",
+                    "title": [
+                        "Active Cases",
+                        "(per 10000 population)"
+                    ],
                     "scale": {
                         "scheme": "reds",
                         "type": "log"

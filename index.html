@@ -41,7 +41,7 @@
         <div class="row my-5">
             <div class="row">
                 <div class="col-md-12">
-                    <h3>Country Cases over Time</h3>
+                    <h3>Nationwide Cases over Time</h3>
                 </div>
             </div>
             <div class="row">
@@ -64,6 +64,17 @@
     </div>
 
     <script type="text/javascript">
+
+        // Defined Custom Format Type for casesOverTime tooltip
+        vega.expressionFunction('casesTooltip', function (datum, params) {
+            let formattedString = "";
+            if (datum === null || datum === undefined || datum === NaN) {
+                formattedString = "-";
+            } else {
+                formattedString = datum.toLocaleString();
+            }
+            return formattedString;
+        });
 
         // Country Cases over Time Area Chart
         var casesOverTime = "js/cases_over_time.vg.json";

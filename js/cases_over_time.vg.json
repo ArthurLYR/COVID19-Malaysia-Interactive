@@ -113,8 +113,9 @@
                 {
                     "mark": {
                         "type": "text",
+                        "align": "right",
                         "fontStyle": "italic",
-                        "dx": -50
+                        "dx": -10
                     },
                     "encoding": {
                         "x": {
@@ -126,9 +127,7 @@
                         "text": {
                             "value": [
                                 "Sabah Elections",
-                                "allowed to be held",
-                                "despite pandemic",
-                                "concerns"
+                                "allowed to be held"
                             ]
                         }
                     }
@@ -165,17 +164,17 @@
                     {
                         "field": "New Cases",
                         "type": "quantitative",
-                        "format": ","
+                        "formatType": "casesTooltip"
                     },
                     {
                         "field": "Recovered Cases",
                         "type": "quantitative",
-                        "format": ","
+                        "formatType": "casesTooltip"
                     },
                     {
                         "field": "New Deaths",
                         "type": "quantitative",
-                        "format": ","
+                        "formatType": "casesTooltip"
                     }
                 ]
             },
@@ -194,5 +193,8 @@
                 }
             ]
         }
-    ]
+    ],
+    "config": {
+        "customFormatTypes": true
+    }
 }
